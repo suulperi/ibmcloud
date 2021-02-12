@@ -53,12 +53,14 @@
         description: "VSIs"
         organization: "Default"
         state: present
+        validate_certs: no
 
     - name: Add tower host
       awx.awx.tower_host:
         name: "{{ name_prefix }}-vsi"
         inventory: "IBM Cloud"
         state: present
+        validate_certs: no
         variables:
            ansible_host: "{{ fip.resource.address }}"
 
