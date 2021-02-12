@@ -5,10 +5,6 @@
    - ibm.cloudcollection
 
   tasks:
-    - name: Fetch the variables from var file
-      include_vars:
-        file: vars.yml
-
     - name: get resource groud id
       ibm_resource_group_info:
         name: "{{ resource_group }}"
