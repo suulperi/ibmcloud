@@ -1,8 +1,6 @@
 ---
 - name: Create IBM Cloud VPC VSI
   hosts: localhost
-  collections:
-   - ibm.cloudcollection
 
   tasks:
     - name: get resource groud id
