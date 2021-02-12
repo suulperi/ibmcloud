@@ -1,0 +1,30 @@
+---
+- hosts: all
+  vars:
+  - ansible_user: root
+  - warName: HelloTommi.war
+  - warRemotePath: /tmp
+  - warLocalPath: .
+  - tomcatPath: /opt/tomcat
+
+  tasks:
+  - name: Install Unzip
+    yum:
+      name: unzip
+      state: present
+  - name: Copy WAR to server
+    copy:
+      src: "{{ warLocalPath }}/{{ warName }}"
+      dest: "{{ warRemotePath }}/{{ warName }}"
+
+  - name: Unzip WAR file
+    unarchive: src={{ warRemotePath }}/{{ warName }} dest={{ tomcatPath }}/webapps/ROOT/ copy=no mode=0664 owner=tomcat group=tomcat
+    notify:
+        -  Restart Tomcat Server
+
+  - name: Delete remote war file
+    file: path={{ warRemotePath }}/{{ warName }} state=absent
+
+  handlers:
+    - name: Restart Tomcat Server
+      service: name=tomcat state=restarted

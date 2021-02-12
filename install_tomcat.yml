@@ -1,0 +1,12 @@
+- hosts: all
+  vars:
+    ansible_user: root
+    tomcat_version: 8.5.63
+
+  pre_tasks:
+  - name: Install tar
+    yum:
+      name: tar
+      state: present
+  roles:
+    - zaxos.tomcat-ansible-role
