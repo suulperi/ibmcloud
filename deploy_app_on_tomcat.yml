@@ -14,7 +14,7 @@
       state: present
   - name: Copy WAR to server
     copy:
-      src: "{{ warLocalPath }}/{{ warName }}"
+      remote_src: "{{ warLocalPath }}/{{ warName }}"
       dest: "{{ warRemotePath }}/{{ warName }}"
 
   - name: Unzip WAR file
