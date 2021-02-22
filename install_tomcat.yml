@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: all
   vars:
     ansible_user: root
     tomcat_version: 8.5.63
