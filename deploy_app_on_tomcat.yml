@@ -4,7 +4,7 @@
   - ansible_user: root
   - warName: HelloTommi.war
   - warRemotePath: /tmp
-  - warLocalPath: .
+  - warLocalPath: http://artifactory.sohlberg.io:8081/artifactory/helloTommi/
   - tomcatPath: /opt/tomcat
 
   tasks:
