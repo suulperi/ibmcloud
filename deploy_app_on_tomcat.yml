@@ -3,8 +3,8 @@
   vars:
   - ansible_user: root
   - warName: HelloTommi.war
-  - warRemotePath: /tmp
-  - warLocalPath: http://artifactory.sohlberg.io:8081/artifactory/helloTommi
+  - warLocation: /tmp
+  - artifactory_url: http://artifactory.sohlberg.io:8081/artifactory/helloTommi
   - tomcatPath: /opt/tomcat
 
   tasks:
@@ -15,21 +15,16 @@
 
   - name: Download WAR file to a server
     get_url:
-      url: http://artifactory.sohlberg.io:8081/artifactory/helloTommi/HelloTommi.war
-      dest: "{{ warRemotePath }}/{{ warName }}"
-
-  # - name: Copy WAR to server
-  #   copy:
-  #     remote_src: "{{ warLocalPath }}/{{ warName }}"
-  #     dest: "{{ warRemotePath }}/{{ warName }}"
+      url: "{{ artifactory_url }}/{{ warName }}"
+      dest: "{{ warLocation }}/{{ warName }}"
 
   - name: Unzip WAR file
-    unarchive: src={{ warRemotePath }}/{{ warName }} dest={{ tomcatPath }}/webapps/ROOT/ copy=no mode=0664 owner=tomcat group=tomcat
+    unarchive: src={{ warLocation }}/{{ warName }} dest={{ tomcatPath }}/webapps/ROOT/ copy=no mode=0664 owner=tomcat group=tomcat
     notify:
         -  Restart Tomcat Server
 
   - name: Delete remote war file
-    file: path={{ warRemotePath }}/{{ warName }} state=absent
+    file: path={{ warLocation }}/{{ warName }} state=absent
 
   handlers:
     - name: Restart Tomcat Server
