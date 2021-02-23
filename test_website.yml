@@ -1,8 +1,8 @@
 - hosts: all
 
   tasks:
-  - name: Check that a page returns a status 200 and fail if the word Tommi is not in the page contents
-    uri:
+  - name: Check my custom web page returns HTTP 200 and check content
+    ansible.builtin.uri:
       url: "http://{{ hostvars[inventory_hostname].ansible_host }}:8080"
       return_content: yes
     with_inventory_hostnames:
