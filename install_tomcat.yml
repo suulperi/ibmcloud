@@ -6,7 +6,7 @@
   pre_tasks:
   - name: Sleep for 90 seconds and continue with play
     pause:
-      seconds: 90
+      seconds: 60
 
   - name: Install tar
     yum:
