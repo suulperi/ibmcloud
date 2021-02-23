@@ -1,11 +1,8 @@
-- hosts: localhost
+- hosts: all
 
   tasks:
   - debug:
-      var: hostvars[inventory_hostname]
-
-  - debug:
-      msg: hostvars[inventory_hostname]
+      var: hostvars[inventory_hostname].ansible_host
 
   - name: Check that a page returns a status 200 and fail if the word Tommi is not in the page contents
     uri:
@@ -15,3 +12,4 @@
       - all
     register: this
     failed_when: "'Tommi' not in this.content"
+    delegate_to: localhost
