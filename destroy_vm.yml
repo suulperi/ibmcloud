@@ -18,9 +18,6 @@
          name: "{{ name_prefix }}-vsi"
       register: instance
 
-    - debug:
-        var: instance
-
     - name: destroy a vm
       ibm.cloudcollection.ibm_is_instance:
          id: "{{ instance.resource.id }}"
