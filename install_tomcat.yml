@@ -4,6 +4,11 @@
     tomcat_version: 8.5.63
 
   pre_tasks:
+  - name: Upgrade all packages
+    yum:
+      name: '*'
+    state: latest
+
   - name: Install tar
     yum:
       name: tar
