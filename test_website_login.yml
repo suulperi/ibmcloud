@@ -1,0 +1,12 @@
+- hosts: localhost
+
+  tasks:
+  - name:  Login to a form based webpage
+    uri:
+      url: http://141.125.109.101:8080/manager/html
+      method: POST
+      name: tomcat
+      password: t3mpp@ssw0rd
+      status_code: 302
+      force_basic_auth: yes
+    register: login
