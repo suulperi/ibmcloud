@@ -4,13 +4,14 @@
     tomcat_version: 8.5.63
 
   pre_tasks:
-  - name: Sleep for 30 seconds and continue with play
+  - name: Sleep for 90 seconds and continue with play
     pause:
-      seconds: 30
+      seconds: 90
 
   - name: Install tar
     yum:
       name: tar
       state: present
+
   roles:
     - zaxos.tomcat-ansible-role
