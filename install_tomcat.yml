@@ -7,7 +7,7 @@
   - name: Upgrade all packages
     yum:
       name: '*'
-    state: latest
+      state: latest
 
   - name: Install tar
     yum:
