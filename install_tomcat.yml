@@ -8,11 +8,6 @@
     pause:
       seconds: 30
 
-  - name: Upgrade all packages
-    yum:
-      name: '*'
-      state: latest
-
   - name: Install tar
     yum:
       name: tar
