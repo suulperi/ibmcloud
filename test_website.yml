@@ -6,7 +6,7 @@
 
   - name: Check that a page returns a status 200 and fail if the word Tommi is not in the page contents
     uri:
-      url: "http://{{ ansible_hostname }}:8080"
+      url: "http://{{ hostvars[inventory_hostname].ansible_host }}:8080"
       return_content: yes
     with_inventory_hostnames:
       - all
