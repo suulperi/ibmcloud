@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: "{{ vsi_image }}"
 
   tasks:
   - name:  Login to the Tomcat Management Console

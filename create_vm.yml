@@ -64,4 +64,23 @@
         variables:
            ansible_host: "{{ fip.resource.address }}"
 
+    - name: Add tower group
+      awx.awx.tower_group:
+        name: RHEL7
+        inventory: "IBM Cloud"
+        hosts:
+          - "{{ name_prefix }}-vsi"
+      when: vsi_image == 'RHEL7'
+
+    - name: Add tower group
+      awx.awx.tower_group:
+        name: RHEL8
+        inventory: "IBM Cloud"
+        hosts:
+          - "{{ name_prefix }}-vsi"
+      when: vsi_image == 'RHEL8'
+
+
+
+
 

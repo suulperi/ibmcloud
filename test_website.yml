@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: "{{ vsi_image }}"
 
   tasks:
   - name: Check my custom web page returns HTTP 200 and check content

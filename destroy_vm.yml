@@ -23,10 +23,3 @@
          id: "{{ instance.resource.id }}"
          state: absent
          keys: []
-
-    - name: Add tower host
-      awx.awx.tower_host:
-        name: "{{ name_prefix }}-vsi"
-        inventory: "IBM Cloud"
-        state: absent
-        validate_certs: no
