@@ -30,7 +30,7 @@
         state: available
         vpc: "{{ vpc_info.resource.id }}"
         profile: "{{ vsi_profile }}"
-        image: "{{ vsi_image | default('r018-12dc96ee-0e85-4bef-bed6-a9d0bdc57cc5')  }}"
+        image: "{{ 'r018-12dc96ee-0e85-4bef-bed6-a9d0bdc57cc5' if vsi_image == 'RHEL8' else 'r018-931515d2-fcc3-11e9-896d-3baa2797200f' }}"
         keys:
           - "{{ ssh_info.resource.id }}"
         primary_network_interface:
