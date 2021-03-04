@@ -3,6 +3,7 @@
   - redhat_portal_username: redhat_portal_username
   - redhat_portal_password: redhat_portal_password
   - auto_config: False
+  - authmethod: BASIC
 
   roles:
     - RedHatInsights.insights-client
