@@ -1,0 +1,7 @@
+- hosts: "{{ vsi_image }}"
+  vars:
+  - redhat_portal_username: redhat_portal_username
+  - redhat_portal_password: redhat_portal_password
+
+  roles:
+    - RedHatInsights.insights-client

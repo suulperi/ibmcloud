@@ -1,3 +1,4 @@
 ---
 roles:
  - zaxos.tomcat-ansible-role
+ - RedHatInsights.insights-client
