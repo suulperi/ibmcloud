@@ -2,6 +2,7 @@
   vars:
   - redhat_portal_username: redhat_portal_username
   - redhat_portal_password: redhat_portal_password
+  - auto_config: False
 
   roles:
     - RedHatInsights.insights-client
