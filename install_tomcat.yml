@@ -7,6 +7,7 @@
   - name: Sleep for 90 seconds and continue with play
     pause:
       seconds: 90
+    when: vsi_image == 'RHEL7'
 
   - name: Install tar
     yum:
