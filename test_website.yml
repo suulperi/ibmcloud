@@ -8,5 +8,5 @@
     with_inventory_hostnames:
       - all
     register: this
-    failed_when: "'Tommi' not in this.content"
+    failed_when: "'Couches' not in this.content"
     delegate_to: localhost
