@@ -7,11 +7,13 @@
       ibm.cloudcollection.ibm_is_floating_ip_info:
         name: "{{ name_prefix }}-fip"
       register: floating_ip
+      ignore_errors: yes
 
     - name: release floating ip
       ibm.cloudcollection.ibm_is_floating_ip:
         id: "{{ floating_ip.resource.id }}"
         state: absent
+      ignore_errors: yes
 
     - name: get vsi id
       ibm.cloudcollection.ibm_is_instance_info:
